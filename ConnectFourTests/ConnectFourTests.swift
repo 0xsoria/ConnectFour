@@ -10,24 +10,44 @@ import XCTest
 
 class ConnectFourTests: XCTestCase {
 
+    var sut: BoardGameViewController?
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.sut = self.makeSut()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.sut = nil
+    }
+    
+    func testInitialSetup() {
+        self.loadSut()
+        XCTAssertTrue(self.sut!.mainView.state == .notStarted)
+        XCTAssertTrue(self.sut!.mainView.board.delegate != nil)
+        XCTAssertTrue(self.sut!.mainView.board.dataSource != nil)
+        XCTAssertTrue(self.sut!.mainView.board.numberOfSections == 6)
+        XCTAssertTrue(self.sut!.mainView.board.numberOfItems(inSection: 0) == 7)
+        XCTAssertTrue((self.sut!.mainView.board.backgroundView as? NSImageView)?.image?.name() == .grid)
+        XCTAssertTrue(self.sut!.mainView.gameStateLabel.stringValue == MainView.TitlesAndNames.startNewGame.rawValue)
+    }
+    
+    func testMakeNewGame() {
+        self.loadSut()
+        self.sut?.mainView.newGameAction()
+        XCTAssertTrue(self.sut!.dataSource.dataSet.count == 6)
+        XCTAssertTrue(self.sut!.dataSource.dataSet.first!.count == 7)
+        XCTAssertTrue(self.sut!.mainView.board.numberOfSections == 6)
+        XCTAssertTrue(self.sut!.mainView.board.numberOfItems(inSection: 0) == 7)
+        XCTAssertTrue(self.sut!.mainView.gameStateLabel.stringValue == MainView.TitlesAndNames.redTurn.rawValue)
+        XCTAssertTrue(self.sut!.mainView.state == .redTurn)
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func loadSut() {
+        self.sut?.loadView()
+        self.sut?.viewDidLoad()
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func makeSut() -> BoardGameViewController {
+        BoardGameViewController()
     }
-
 }

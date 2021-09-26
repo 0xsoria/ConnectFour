@@ -7,14 +7,20 @@
 
 import Cocoa
 
-@main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    
-
+    var window: NSWindow?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        self.window = NSWindow(contentRect: NSRect(x: 500,
+                                                   y: 200,
+                                                   width: 700, height: 700),
+                               styleMask: [.closable, .titled],
+                               backing: .buffered,
+                               defer: false)
+        let controller = BoardGameViewController()
+        self.window?.contentViewController = controller
+        self.window?.makeKeyAndOrderFront(nil)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -24,7 +30,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
-
-
 }
-

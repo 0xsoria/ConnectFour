@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		153E714E26FFB3520029C75F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E714D26FFB3520029C75F /* AppDelegate.swift */; };
-		153E715026FFB3520029C75F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E714F26FFB3520029C75F /* ViewController.swift */; };
+		153E715026FFB3520029C75F /* BoardGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E714F26FFB3520029C75F /* BoardGameViewController.swift */; };
 		153E715226FFB3530029C75F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 153E715126FFB3530029C75F /* Assets.xcassets */; };
-		153E715526FFB3530029C75F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 153E715326FFB3530029C75F /* Main.storyboard */; };
 		153E716026FFB3540029C75F /* ConnectFourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E715F26FFB3540029C75F /* ConnectFourTests.swift */; };
 		153E716A26FFB3540029C75F /* ConnectFourUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E716926FFB3540029C75F /* ConnectFourUITests.swift */; };
 		153E716C26FFB3540029C75F /* ConnectFourUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E716B26FFB3540029C75F /* ConnectFourUITestsLaunchTests.swift */; };
+		153E717926FFB39A0029C75F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E717826FFB39A0029C75F /* main.swift */; };
+		153E717B26FFB3F50029C75F /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E717A26FFB3F50029C75F /* NSImage+Extensions.swift */; };
+		153E717D26FFB48B0029C75F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E717C26FFB48B0029C75F /* MainView.swift */; };
+		153E717F26FFB4A50029C75F /* CoinCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E717E26FFB4A50029C75F /* CoinCollectionViewItem.swift */; };
+		153E718126FFB4C40029C75F /* BoardGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E718026FFB4C40029C75F /* BoardGameModel.swift */; };
+		153E718326FFB4D30029C75F /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E718226FFB4D30029C75F /* Coin.swift */; };
+		153E718526FFB51E0029C75F /* BoardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E718426FFB51E0029C75F /* BoardDataSource.swift */; };
+		153E71872700C5050029C75F /* NSCollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E71862700C5050029C75F /* NSCollectionView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,15 +43,22 @@
 /* Begin PBXFileReference section */
 		153E714A26FFB3520029C75F /* ConnectFour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectFour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		153E714D26FFB3520029C75F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		153E714F26FFB3520029C75F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		153E714F26FFB3520029C75F /* BoardGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameViewController.swift; sourceTree = "<group>"; };
 		153E715126FFB3530029C75F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		153E715426FFB3530029C75F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		153E715626FFB3530029C75F /* ConnectFour.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ConnectFour.entitlements; sourceTree = "<group>"; };
 		153E715B26FFB3530029C75F /* ConnectFourTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectFourTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		153E715F26FFB3540029C75F /* ConnectFourTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourTests.swift; sourceTree = "<group>"; };
 		153E716526FFB3540029C75F /* ConnectFourUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectFourUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		153E716926FFB3540029C75F /* ConnectFourUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourUITests.swift; sourceTree = "<group>"; };
 		153E716B26FFB3540029C75F /* ConnectFourUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		153E717826FFB39A0029C75F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		153E717A26FFB3F50029C75F /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
+		153E717C26FFB48B0029C75F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		153E717E26FFB4A50029C75F /* CoinCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCollectionViewItem.swift; sourceTree = "<group>"; };
+		153E718026FFB4C40029C75F /* BoardGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameModel.swift; sourceTree = "<group>"; };
+		153E718226FFB4D30029C75F /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		153E718426FFB51E0029C75F /* BoardDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDataSource.swift; sourceTree = "<group>"; };
+		153E71862700C5050029C75F /* NSCollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +110,17 @@
 			isa = PBXGroup;
 			children = (
 				153E714D26FFB3520029C75F /* AppDelegate.swift */,
-				153E714F26FFB3520029C75F /* ViewController.swift */,
+				153E714F26FFB3520029C75F /* BoardGameViewController.swift */,
+				153E718426FFB51E0029C75F /* BoardDataSource.swift */,
+				153E717A26FFB3F50029C75F /* NSImage+Extensions.swift */,
 				153E715126FFB3530029C75F /* Assets.xcassets */,
-				153E715326FFB3530029C75F /* Main.storyboard */,
 				153E715626FFB3530029C75F /* ConnectFour.entitlements */,
+				153E717826FFB39A0029C75F /* main.swift */,
+				153E717C26FFB48B0029C75F /* MainView.swift */,
+				153E717E26FFB4A50029C75F /* CoinCollectionViewItem.swift */,
+				153E718026FFB4C40029C75F /* BoardGameModel.swift */,
+				153E718226FFB4D30029C75F /* Coin.swift */,
+				153E71862700C5050029C75F /* NSCollectionView+Extensions.swift */,
 			);
 			path = ConnectFour;
 			sourceTree = "<group>";
@@ -226,7 +247,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				153E715226FFB3530029C75F /* Assets.xcassets in Resources */,
-				153E715526FFB3530029C75F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,8 +271,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				153E715026FFB3520029C75F /* ViewController.swift in Sources */,
+				153E715026FFB3520029C75F /* BoardGameViewController.swift in Sources */,
 				153E714E26FFB3520029C75F /* AppDelegate.swift in Sources */,
+				153E717F26FFB4A50029C75F /* CoinCollectionViewItem.swift in Sources */,
+				153E718126FFB4C40029C75F /* BoardGameModel.swift in Sources */,
+				153E717B26FFB3F50029C75F /* NSImage+Extensions.swift in Sources */,
+				153E717D26FFB48B0029C75F /* MainView.swift in Sources */,
+				153E718326FFB4D30029C75F /* Coin.swift in Sources */,
+				153E717926FFB39A0029C75F /* main.swift in Sources */,
+				153E718526FFB51E0029C75F /* BoardDataSource.swift in Sources */,
+				153E71872700C5050029C75F /* NSCollectionView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,17 +315,6 @@
 			targetProxy = 153E716626FFB3540029C75F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		153E715326FFB3530029C75F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				153E715426FFB3530029C75F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		153E716D26FFB3540029C75F /* Debug */ = {
@@ -351,7 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -406,7 +423,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -428,12 +445,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Gabriel-Soria.ConnectFour";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -455,12 +472,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Gabriel-Soria.ConnectFour";
 				PRODUCT_NAME = "$(TARGET_NAME)";
