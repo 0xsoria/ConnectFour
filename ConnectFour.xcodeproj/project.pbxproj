@@ -94,21 +94,69 @@
 		153E714C26FFB3520029C75F /* ConnectFour */ = {
 			isa = PBXGroup;
 			children = (
-				153E714D26FFB3520029C75F /* AppDelegate.swift */,
-				153E714F26FFB3520029C75F /* BoardGameViewController.swift */,
-				153E718426FFB51E0029C75F /* BoardDataSource.swift */,
-				153E717A26FFB3F50029C75F /* NSImage+Extensions.swift */,
+				158A627C270255D900E9E5F3 /* Application */,
+				158A62802702566F00E9E5F3 /* BoardController */,
+				158A627E2702560200E9E5F3 /* BoardDataSource */,
 				153E715126FFB3530029C75F /* Assets.xcassets */,
 				15FD591C2701E330009641C4 /* ConnectFour.entitlements */,
+				158A627F2702561900E9E5F3 /* Views */,
+				158A627D270255F100E9E5F3 /* GameModel */,
+				158A627B270255C000E9E5F3 /* Extensions */,
+			);
+			path = ConnectFour;
+			sourceTree = "<group>";
+		};
+		158A627B270255C000E9E5F3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				153E717A26FFB3F50029C75F /* NSImage+Extensions.swift */,
+				153E71862700C5050029C75F /* NSCollectionView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		158A627C270255D900E9E5F3 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				153E714D26FFB3520029C75F /* AppDelegate.swift */,
 				153E717826FFB39A0029C75F /* main.swift */,
-				153E717C26FFB48B0029C75F /* MainView.swift */,
-				153E717E26FFB4A50029C75F /* CoinCollectionViewItem.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		158A627D270255F100E9E5F3 /* GameModel */ = {
+			isa = PBXGroup;
+			children = (
 				153E718026FFB4C40029C75F /* BoardGameModel.swift */,
 				15BB922E2701D87800E1B331 /* ConnectFourModel.swift */,
 				153E718226FFB4D30029C75F /* Coin.swift */,
-				153E71862700C5050029C75F /* NSCollectionView+Extensions.swift */,
 			);
-			path = ConnectFour;
+			path = GameModel;
+			sourceTree = "<group>";
+		};
+		158A627E2702560200E9E5F3 /* BoardDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				153E718426FFB51E0029C75F /* BoardDataSource.swift */,
+			);
+			path = BoardDataSource;
+			sourceTree = "<group>";
+		};
+		158A627F2702561900E9E5F3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				153E717C26FFB48B0029C75F /* MainView.swift */,
+				153E717E26FFB4A50029C75F /* CoinCollectionViewItem.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		158A62802702566F00E9E5F3 /* BoardController */ = {
+			isa = PBXGroup;
+			children = (
+				153E714F26FFB3520029C75F /* BoardGameViewController.swift */,
+			);
+			path = BoardController;
 			sourceTree = "<group>";
 		};
 		15FD59122701E198009641C4 /* ConnectFourTest */ = {

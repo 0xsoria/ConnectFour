@@ -30,5 +30,4 @@ struct Coin {
     init(color: CoinColor) {
         self.color = color
     }
-    
 }
