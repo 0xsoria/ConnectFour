@@ -39,7 +39,7 @@ final class BoardGameModel {
     private let magicSequence: Int
     weak var delegate: BoardGameDelegate?
     
-    init(model: BoardModel = ConnectFourModel()) {
+    init(model: BoardModel) {
         self.intelligentSelection = model.intellgentSelection
         self.numberOfLines = model.numberOfLines
         self.numberOfCollums = model.numberOfCollums

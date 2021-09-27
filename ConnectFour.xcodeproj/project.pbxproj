@@ -19,6 +19,7 @@
 		153E718526FFB51E0029C75F /* BoardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E718426FFB51E0029C75F /* BoardDataSource.swift */; };
 		153E71872700C5050029C75F /* NSCollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E71862700C5050029C75F /* NSCollectionView+Extensions.swift */; };
 		158A627A2702079B00E9E5F3 /* BoardDataSourceForTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A62792702079B00E9E5F3 /* BoardDataSourceForTest.swift */; };
+		158A628227025ECA00E9E5F3 /* BoardGameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A628127025ECA00E9E5F3 /* BoardGameFactory.swift */; };
 		15BB922F2701D87800E1B331 /* ConnectFourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB922E2701D87800E1B331 /* ConnectFourModel.swift */; };
 		15FD591A2701E1AD009641C4 /* BoardModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB92302701D90900E1B331 /* BoardModelTests.swift */; };
 		15FD591B2701E1AD009641C4 /* ConnectFourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E715F26FFB3540029C75F /* ConnectFourTests.swift */; };
@@ -49,6 +50,7 @@
 		153E718426FFB51E0029C75F /* BoardDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDataSource.swift; sourceTree = "<group>"; };
 		153E71862700C5050029C75F /* NSCollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		158A62792702079B00E9E5F3 /* BoardDataSourceForTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDataSourceForTest.swift; sourceTree = "<group>"; };
+		158A628127025ECA00E9E5F3 /* BoardGameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameFactory.swift; sourceTree = "<group>"; };
 		15BB922E2701D87800E1B331 /* ConnectFourModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourModel.swift; sourceTree = "<group>"; };
 		15BB92302701D90900E1B331 /* BoardModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModelTests.swift; sourceTree = "<group>"; };
 		15FD59112701E198009641C4 /* ConnectFourTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectFourTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				153E714F26FFB3520029C75F /* BoardGameViewController.swift */,
+				158A628127025ECA00E9E5F3 /* BoardGameFactory.swift */,
 			);
 			path = BoardController;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				153E718526FFB51E0029C75F /* BoardDataSource.swift in Sources */,
 				15BB922F2701D87800E1B331 /* ConnectFourModel.swift in Sources */,
 				153E71872700C5050029C75F /* NSCollectionView+Extensions.swift in Sources */,
+				158A628227025ECA00E9E5F3 /* BoardGameFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

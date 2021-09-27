@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                styleMask: [.closable, .titled],
                                backing: .buffered,
                                defer: false)
-        let controller = BoardGameViewController()
+        let controller = MakeBoardGame.make()
         self.window?.contentViewController = controller
         self.window?.makeKeyAndOrderFront(nil)
     }

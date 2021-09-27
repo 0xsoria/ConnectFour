@@ -27,10 +27,11 @@ final class BoardGameViewController: NSViewController {
     }
 
     let mainView = MainView(with: .notStarted)
-    let model = BoardGameModel()
+    let model: BoardGameModel
     let dataSource = BoardDataSource()
 
-    init() {
+    init(model: BoardGameModel) {
+        self.model = model
         super.init(nibName: nil, bundle: nil)
     }
 
