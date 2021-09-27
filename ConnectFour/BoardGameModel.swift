@@ -23,19 +23,29 @@ protocol BoardGameDelegate: AnyObject {
     func gameOver()
 }
 
+protocol BoardModel {
+    var numberOfLines: Int { get }
+    var numberOfCollums: Int { get }
+    var magicSequence: Int { get }
+    var intellgentSelection: Bool { get }
+}
+
 final class BoardGameModel {
 
     ///Set to true if wants to play agains the AI (yellow coin).
     private let intelligentSelection: Bool
-    private let numberOfLines = 6
-    private let numberOfCollums = 7
-    private let magicSequence = 4
+    private let numberOfLines: Int
+    private let numberOfCollums: Int
+    private let magicSequence: Int
     weak var delegate: BoardGameDelegate?
     
-    init(intelligentSelection: Bool = true) {
-        self.intelligentSelection = intelligentSelection
+    init(model: BoardModel = ConnectFourModel()) {
+        self.intelligentSelection = model.intellgentSelection
+        self.numberOfLines = model.numberOfLines
+        self.numberOfCollums = model.numberOfCollums
+        self.magicSequence = model.magicSequence
     }
-    
+
     /**
     Ask the model where to add a coin based on the selected item of the index path, the function calculates the correct line (section) to place the coin and informs the delegate where to place it. If there is no free line, it returns nothing.
      - Parameter indexPath: IndexPath selected (line and column).
@@ -227,10 +237,6 @@ final class BoardGameModel {
         //diagonal -> right to left - end
         
         return (false, [])
-    }
-    
-    private func isBoardFull(_ data: [[Coin]]) -> Bool {
-        return false
     }
     
     private func getFreeIndex(data: [[Coin]], from turn: BoardGameViewController.GameState) {
