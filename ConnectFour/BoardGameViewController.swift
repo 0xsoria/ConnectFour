@@ -82,7 +82,7 @@ extension BoardGameViewController: BoardDataSourceDelegate {
     }
 }
 
-extension BoardGameViewController: MainModelDelegate {
+extension BoardGameViewController: BoardGameDelegate {
     func shouldFinishTheGame(winner: Coin.CoinColor,
                              indexes: [IndexPath],
                              state: BoardGameViewController.GameState) {

@@ -35,10 +35,6 @@ final class BoardDataSource: NSObject, NSCollectionViewDataSource, NSCollectionV
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         dataSet[section].count
     }
-    
-    func collectionView(_ collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>) {
-        //
-    }
 
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         if let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: MainView.TitlesAndNames.itemID.rawValue), for: indexPath) as? CoinCollectionViewItem {
@@ -47,14 +43,14 @@ final class BoardDataSource: NSObject, NSCollectionViewDataSource, NSCollectionV
         }
         return NSCollectionViewItem()
     }
-    
+
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         collectionView.deselectItems(at: indexPaths)
         if let first = indexPaths.first {
             self.delegate?.didSelect(at: first, data: self.dataSet)
         }
     }
-    
+
     private func makeCollection(with numberOfLines: Int, and numberOfCollums: Int) -> [[Coin]] {
         let column = Array(repeating: Coin(color: .empty), count: numberOfCollums)
         let line = Array(repeating: column, count: numberOfLines)

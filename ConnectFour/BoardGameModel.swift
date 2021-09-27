@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MainModelDelegate: AnyObject {
+protocol BoardGameDelegate: AnyObject {
     func shouldMakeInitialSetup(numberOfLines: Int, numberOfCollums: Int)
     func shouldStartNewGame(newState: BoardGameViewController.GameState,
                          numberOfLines: Int,
@@ -30,7 +30,7 @@ final class BoardGameModel {
     private let numberOfLines = 6
     private let numberOfCollums = 7
     private let magicSequence = 4
-    weak var delegate: MainModelDelegate?
+    weak var delegate: BoardGameDelegate?
     
     init(intelligentSelection: Bool = true) {
         self.intelligentSelection = intelligentSelection
