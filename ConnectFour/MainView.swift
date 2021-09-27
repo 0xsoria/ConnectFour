@@ -40,6 +40,7 @@ final class MainView: NSView {
         textField.backgroundColor = .white
         textField.textColor = .black
         textField.alignment = .center
+        textField.font = NSFont.systemFont(ofSize: 20)
         return textField
     }()
     
@@ -54,6 +55,7 @@ final class MainView: NSView {
         textField.alignment = .center
         textField.isHidden = true
         textField.stringValue = TitlesAndNames.wait.rawValue
+        textField.font = NSFont.systemFont(ofSize: 20)
         return textField
     }()
 
