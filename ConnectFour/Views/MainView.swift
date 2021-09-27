@@ -8,7 +8,8 @@
 import AppKit
 
 protocol MainViewDelegate: AnyObject {
-    func didTapNewGame(_ mainView: MainView, from state: BoardGameViewController.GameState)
+    func didTapNewGame(_ mainView: MainView,
+                       from state: BoardGameViewController.GameState)
 }
 
 final class MainView: NSView {
@@ -21,13 +22,13 @@ final class MainView: NSView {
     weak var delegate: MainViewDelegate?
 
     lazy var newGameButton: NSButton = {
-        let button = NSButton(title: MainView.TitlesAndNames.newGame.rawValue,
-                              target: self,
-                              action: #selector(newGameAction))
+        let button = NSButton()
+        button.title = MainView.TitlesAndNames.newGame.rawValue
+        button.action = #selector(newGameAction)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.wantsLayer = true
         button.layer?.backgroundColor = NSColor.blue.cgColor
-        button.layer?.cornerRadius = 20
+        button.layer?.cornerRadius = 5
         return button
     }()
 
