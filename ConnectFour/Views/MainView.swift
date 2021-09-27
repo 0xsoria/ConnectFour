@@ -59,6 +59,20 @@ final class MainView: NSView {
         textField.font = NSFont.systemFont(ofSize: 20)
         return textField
     }()
+    
+    lazy var instructionsLabel: NSTextField = {
+        let textField = NSTextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.isEditable = false
+        textField.isSelectable = false
+        textField.isBezeled = false
+        textField.backgroundColor = .white
+        textField.textColor = .black
+        textField.alignment = .center
+        textField.stringValue = TitlesAndNames.connectFour.rawValue
+        textField.font = NSFont.systemFont(ofSize: 12)
+        return textField
+    }()
 
     lazy var board: NSCollectionView = {
         let collectionView = NSCollectionView()
@@ -148,13 +162,22 @@ final class MainView: NSView {
         self.gameStateLabel.bottomAnchor.constraint(equalTo: self.board.topAnchor, constant: -20).isActive = true
         self.gameStateLabel.centerXAnchor.constraint(equalTo: self.board.centerXAnchor).isActive = true
         
-        //
+        //instructions label
+        self.addSubview(self.instructionsLabel)
+        self.instructionsLabel.widthAnchor.constraint(equalTo: self.board.widthAnchor).isActive = true
+        self.instructionsLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.instructionsLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
+        self.instructionsLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        //status label
         self.addSubview(self.statusLabel)
         self.statusLabel.topAnchor.constraint(equalTo: self.board.bottomAnchor, constant: 10).isActive = true
         self.statusLabel.widthAnchor.constraint(equalTo: self.board.widthAnchor).isActive = true
         self.statusLabel.centerXAnchor.constraint(equalTo: self.board.centerXAnchor).isActive = true
-        self.statusLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor,
+        self.statusLabel.bottomAnchor.constraint(equalTo: self.instructionsLabel.topAnchor,
                                                  constant: -5).isActive = true
+        
+        
     }
     
     private func setupAttributes() {
@@ -222,12 +245,13 @@ extension MainView {
     enum TitlesAndNames: String {
         case newGame = "New Game"
         case startNewGame = "Start a new game"
-        case redTurn = "Red Turn"
-        case yellowTurn = "Yellow Turn"
+        case redTurn = "Red's Turn - It's you."
+        case yellowTurn = "Yellow's Turn"
         case over = "Game Over"
         case itemID = "CoinItem"
         case wait = "Wait for your turn"
         case winnerRed = "Red is the winner"
         case winnerYellow = "Yellow is the winner"
+        case connectFour = "Connect four coins of the same color horizontally, vertically or diagonally."
     }
 }
