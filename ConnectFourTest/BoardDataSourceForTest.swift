@@ -8,6 +8,24 @@
 import Foundation
 @testable import ConnectFour
 
+struct ConnectFiveModelTwoPlayers: BoardModel {
+    var numberOfLines: Int {
+        6
+    }
+
+    var numberOfCollums: Int {
+        7
+    }
+
+    var magicSequence: Int {
+        5
+    }
+
+    var intellgentSelection: Bool {
+        false
+    }
+}
+
 struct ConnectFourModelTwoPlayers: BoardModel {
     var numberOfLines: Int {
         6

@@ -48,6 +48,6 @@ class ConnectFourTests: XCTestCase {
     }
 
     func makeSut() -> BoardGameViewController {
-        BoardGameViewController()
+        MakeBoardGame.make()
     }
 }
