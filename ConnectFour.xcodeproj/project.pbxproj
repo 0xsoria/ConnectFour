@@ -20,7 +20,6 @@
 		153E71872700C5050029C75F /* NSCollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E71862700C5050029C75F /* NSCollectionView+Extensions.swift */; };
 		158A627A2702079B00E9E5F3 /* BoardDataSourceForTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A62792702079B00E9E5F3 /* BoardDataSourceForTest.swift */; };
 		15BB922F2701D87800E1B331 /* ConnectFourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB922E2701D87800E1B331 /* ConnectFourModel.swift */; };
-		15FD59142701E198009641C4 /* ConnectFourTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD59132701E198009641C4 /* ConnectFourTest.swift */; };
 		15FD591A2701E1AD009641C4 /* BoardModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB92302701D90900E1B331 /* BoardModelTests.swift */; };
 		15FD591B2701E1AD009641C4 /* ConnectFourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E715F26FFB3540029C75F /* ConnectFourTests.swift */; };
 /* End PBXBuildFile section */
@@ -53,7 +52,6 @@
 		15BB922E2701D87800E1B331 /* ConnectFourModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourModel.swift; sourceTree = "<group>"; };
 		15BB92302701D90900E1B331 /* BoardModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModelTests.swift; sourceTree = "<group>"; };
 		15FD59112701E198009641C4 /* ConnectFourTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectFourTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		15FD59132701E198009641C4 /* ConnectFourTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourTest.swift; sourceTree = "<group>"; };
 		15FD591C2701E330009641C4 /* ConnectFour.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ConnectFour.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,7 +117,6 @@
 				153E715F26FFB3540029C75F /* ConnectFourTests.swift */,
 				15BB92302701D90900E1B331 /* BoardModelTests.swift */,
 				158A62792702079B00E9E5F3 /* BoardDataSourceForTest.swift */,
-				15FD59132701E198009641C4 /* ConnectFourTest.swift */,
 			);
 			path = ConnectFourTest;
 			sourceTree = "<group>";
@@ -243,7 +240,6 @@
 			files = (
 				15FD591A2701E1AD009641C4 /* BoardModelTests.swift in Sources */,
 				158A627A2702079B00E9E5F3 /* BoardDataSourceForTest.swift in Sources */,
-				15FD59142701E198009641C4 /* ConnectFourTest.swift in Sources */,
 				15FD591B2701E1AD009641C4 /* ConnectFourTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -80,6 +80,122 @@ class BoardModelTests: XCTestCase {
                                                with: self.sutDelegate!.dataSet)
     }
     
+    func testTie() {
+        self.makeSutConnectFourTwoPlayers()
+        self.sut?.initialSetup()
+        self.sut?.newGame()
+        //first row
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 0, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 1, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 6, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 2, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 5, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 3, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 4, section: 0))
+        
+        //second row
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 6, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 1, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 0, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 2, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 4, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 3, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 5, section: 0))
+        
+        //third row
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 0, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 1, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 4, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 2, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 5, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 3, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 6, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 3, section: 0))
+        
+        //fourth row
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 0, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 1, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 4, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 2, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 5, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 6, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 3, section: 0))
+        
+        
+        //fifth row
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 0, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 1, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 4, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 2, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 5, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 3, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 6, section: 0))
+        
+        //sixth row
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 6, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 2, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 5, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 4, section: 0))
+        
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 3, section: 0))
+        //red
+        self.insertAndTakeTurn(at: IndexPath(item: 1, section: 0))
+        //yellow
+        self.insertAndTakeTurn(at: IndexPath(item: 0, section: 0))
+        
+        var emptyIndexes: [Coin] = []
+        for coin in self.sutDelegate!.dataSet.first! {
+            if coin.color == .empty {
+                emptyIndexes.append(coin)
+            }
+        }
+        XCTAssertTrue(emptyIndexes.isEmpty)
+        XCTAssertTrue(self.sutDelegate?.state == .over)
+        XCTAssertTrue(self.sutDelegate!.winnerIndexes.isEmpty)
+        XCTAssertNil(self.sutDelegate!.winner)      
+    }
+    
     func testYelloWinningDiagonallyRightUpSide() {
         self.makeSutConnectFourTwoPlayers()
         self.sut?.initialSetup()
