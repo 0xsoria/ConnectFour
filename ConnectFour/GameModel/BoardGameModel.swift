@@ -127,6 +127,12 @@ class BoardGameModel {
         return true
     }
     
+    
+    /**
+        This function evaluate if there is a winner on the currect game. It evaluates the board and check if there are X coins of the same color in a row. If there is, it will return the indexes of these items.
+     - Important: This function is very inefficient, it evaluates  every possibility of connecting four elements             whatever the input of the user.
+     
+     */
     func isThereAWinner(from turn: BoardGameViewController.GameState,
                         with data: [[Coin]],
                         insertedAt: IndexPath) -> (Bool, [IndexPath]) {

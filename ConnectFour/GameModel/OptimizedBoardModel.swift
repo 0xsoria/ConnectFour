@@ -9,6 +9,10 @@ import Foundation
 
 class OptimizedBoardModel: BoardGameModel {
     
+    /**
+        This function evaluate if there is a winner on the currect game. It uses the insertion of the user as a reference to start looking for connections. For example, if the user input a coin on (3, 3), this function checks the horizontal, vertical and diagonal possibilities only based on this index path.
+     */
+    
     override func isThereAWinner(from turn: BoardGameViewController.GameState,
                                  with data: [[Coin]],
                                  insertedAt: IndexPath) -> (Bool, [IndexPath]) {
