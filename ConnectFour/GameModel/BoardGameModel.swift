@@ -82,6 +82,7 @@ class BoardGameModel {
      Analyze if there is any winner in the current data set. If there isn't any winner, the delegate is informed to start a new turn.
      - Parameter turn: Who's the current turn.
      - Parameter data: Current data set.
+     - Parameter insertedAt: IndexPath where the coin was inserted
      - Important: If playing agains the AI, when the AI takes over, the delegate is informed the AI started thinking and when it's over.
      */
     func analyzeGameResultAndTakeTurn(from turn: BoardGameViewController.GameState,
