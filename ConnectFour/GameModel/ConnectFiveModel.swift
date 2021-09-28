@@ -1,11 +1,11 @@
 //
-//  ConnectFourModel.swift
+//  ConnectFiveModel.swift
 //  ConnectFour
 //
-//  Created by Gabriel Soria Souza on 27/09/21.
+//  Created by Gabriel Soria Souza on 28/09/21.
 //
 
-struct ConnectFourModel: BoardModel {
+struct ConnectFiveModel: BoardModel {
     var numberOfLines: Int {
         6
     }
@@ -13,14 +13,14 @@ struct ConnectFourModel: BoardModel {
         7
     }
     var magicSequence: Int {
-        4
+        5
     }
     var intellgentSelection: Bool {
         true
     }
 }
 
-struct ConnectFourModelTwoPlayers: BoardModel {
+struct ConnectFiveModelTwoPlayers: BoardModel {
     var numberOfLines: Int {
         6
     }
@@ -28,7 +28,7 @@ struct ConnectFourModelTwoPlayers: BoardModel {
         7
     }
     var magicSequence: Int {
-        4
+        5
     }
     var intellgentSelection: Bool {
         false

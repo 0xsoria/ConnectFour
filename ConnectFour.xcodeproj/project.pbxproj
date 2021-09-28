@@ -27,6 +27,7 @@
 		15B8757A27035B43008F6FDB /* OptimizedBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8757927035B43008F6FDB /* OptimizedBoardModel.swift */; };
 		15B8757C27036071008F6FDB /* MeasureOptimizedVsRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8757B27036071008F6FDB /* MeasureOptimizedVsRegular.swift */; };
 		15B8757E2703685F008F6FDB /* ConnectFiveOptimized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8757D2703685F008F6FDB /* ConnectFiveOptimized.swift */; };
+		15B8758027037A19008F6FDB /* ConnectFiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8757F27037A19008F6FDB /* ConnectFiveModel.swift */; };
 		15BB922F2701D87800E1B331 /* ConnectFourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB922E2701D87800E1B331 /* ConnectFourModel.swift */; };
 		15FD591A2701E1AD009641C4 /* BoardModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB92302701D90900E1B331 /* BoardModelTests.swift */; };
 		15FD591B2701E1AD009641C4 /* ConnectFourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E715F26FFB3540029C75F /* ConnectFourTests.swift */; };
@@ -65,6 +66,7 @@
 		15B8757927035B43008F6FDB /* OptimizedBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizedBoardModel.swift; sourceTree = "<group>"; };
 		15B8757B27036071008F6FDB /* MeasureOptimizedVsRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureOptimizedVsRegular.swift; sourceTree = "<group>"; };
 		15B8757D2703685F008F6FDB /* ConnectFiveOptimized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFiveOptimized.swift; sourceTree = "<group>"; };
+		15B8757F27037A19008F6FDB /* ConnectFiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFiveModel.swift; sourceTree = "<group>"; };
 		15BB922E2701D87800E1B331 /* ConnectFourModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourModel.swift; sourceTree = "<group>"; };
 		15BB92302701D90900E1B331 /* BoardModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModelTests.swift; sourceTree = "<group>"; };
 		15FD59112701E198009641C4 /* ConnectFourTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectFourTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +148,7 @@
 				153E718026FFB4C40029C75F /* BoardGameModel.swift */,
 				15B8757927035B43008F6FDB /* OptimizedBoardModel.swift */,
 				15BB922E2701D87800E1B331 /* ConnectFourModel.swift */,
+				15B8757F27037A19008F6FDB /* ConnectFiveModel.swift */,
 				153E718226FFB4D30029C75F /* Coin.swift */,
 			);
 			path = GameModel;
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B8758027037A19008F6FDB /* ConnectFiveModel.swift in Sources */,
 				153E715026FFB3520029C75F /* BoardGameViewController.swift in Sources */,
 				153E714E26FFB3520029C75F /* AppDelegate.swift in Sources */,
 				153E717F26FFB4A50029C75F /* CoinCollectionViewItem.swift in Sources */,
