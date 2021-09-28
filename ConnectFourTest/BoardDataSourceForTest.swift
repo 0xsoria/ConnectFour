@@ -50,6 +50,7 @@ final class BoardDataSourceForTest: BoardGameDelegate {
     var dataSet: [[Coin]] = []
     var winner:  Coin.CoinColor?
     var winnerIndexes: [IndexPath] = []
+    weak var delegate: BoardDataSourceDelegate?
     
     func shouldMakeInitialSetup(numberOfLines: Int, numberOfCollums: Int) {
         self.dataSet = self.makeCollection(with: numberOfLines, and: numberOfCollums)
@@ -62,6 +63,8 @@ final class BoardDataSourceForTest: BoardGameDelegate {
     
     func shouldAddItem(at indexPath: IndexPath, to color: Coin.CoinColor) {
         self.dataSet[indexPath.section][indexPath.item].color = color
+        self.delegate?.didUpdate(at: indexPath, from: self.dataSet)
+        
     }
     
     func didStartIntelligentSelection() {

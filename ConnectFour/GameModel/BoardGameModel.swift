@@ -30,13 +30,13 @@ protocol BoardModel {
     var intellgentSelection: Bool { get }
 }
 
-final class BoardGameModel {
+class BoardGameModel {
 
     ///Set to true if wants to play agains the AI (yellow coin).
-    private let intelligentSelection: Bool
-    private let numberOfLines: Int
-    private let numberOfCollums: Int
-    private let magicSequence: Int
+    var intelligentSelection: Bool
+    var numberOfLines: Int
+    var numberOfCollums: Int
+    var magicSequence: Int
     weak var delegate: BoardGameDelegate?
     
     init(model: BoardModel) {
@@ -85,9 +85,9 @@ final class BoardGameModel {
      - Important: If playing agains the AI, when the AI takes over, the delegate is informed the AI started thinking and when it's over.
      */
     func analyzeGameResultAndTakeTurn(from turn: BoardGameViewController.GameState,
-                                      with data: [[Coin]]) {
+                                      with data: [[Coin]], insertedAt: IndexPath) {
         //analyze result and positions
-        let result = self.isThereAWinner(from: turn, with: data)
+        let result = self.isThereAWinner(from: turn, with: data, insertedAt: insertedAt)
         if result.0 {
             self.delegate?.shouldFinishTheGame(winner: turn.colorFromState(),
                                                indexes: result.1,
@@ -126,8 +126,9 @@ final class BoardGameModel {
         return true
     }
     
-    private func isThereAWinner(from turn: BoardGameViewController.GameState,
-                                  with data: [[Coin]]) -> (Bool, [IndexPath]) {
+    func isThereAWinner(from turn: BoardGameViewController.GameState,
+                        with data: [[Coin]],
+                        insertedAt: IndexPath) -> (Bool, [IndexPath]) {
         for (indexOfLine, line) in data.enumerated() {
             var indexes: [IndexPath] = []
             for (indexOfColumn, item) in line.enumerated() {

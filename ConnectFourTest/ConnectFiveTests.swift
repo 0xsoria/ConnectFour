@@ -36,7 +36,7 @@ class ConnectFiveTests: XCTestCase {
                           turn: self.sutDelegate!.state,
                           dataSet: self.sutDelegate!.dataSet)
         self.sut?.analyzeGameResultAndTakeTurn(from: self.sutDelegate!.state,
-                                               with: self.sutDelegate!.dataSet)
+                                               with: self.sutDelegate!.dataSet, insertedAt: at)
     }
 
     func testConnectFiveHorizontally() {

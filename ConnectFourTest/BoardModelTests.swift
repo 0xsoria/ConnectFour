@@ -48,7 +48,8 @@ class BoardModelTests: XCTestCase {
                           dataSet: self.sutDelegate!.dataSet)
         XCTAssertTrue(self.sutDelegate?.dataSet[5][0].color == .red)
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet,
+                                               insertedAt: IndexPath(item: 0, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
     }
     
@@ -61,14 +62,15 @@ class BoardModelTests: XCTestCase {
                           dataSet: self.sutDelegate!.dataSet)
         XCTAssertTrue(self.sutDelegate?.dataSet[5][0].color == .red)
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
                           turn: self.sutDelegate!.state,
                           dataSet: self.sutDelegate!.dataSet)
         XCTAssertTrue(self.sutDelegate?.dataSet[4][0].color == .yellow)
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet,
+                                               insertedAt: IndexPath(item: 0, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
     }
     
@@ -77,7 +79,7 @@ class BoardModelTests: XCTestCase {
                           turn: self.sutDelegate!.state,
                           dataSet: self.sutDelegate!.dataSet)
         self.sut?.analyzeGameResultAndTakeTurn(from: self.sutDelegate!.state,
-                                               with: self.sutDelegate!.dataSet)
+                                               with: self.sutDelegate!.dataSet, insertedAt: at)
     }
     
     func testTie() {
@@ -419,7 +421,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][0].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
@@ -428,7 +430,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][0].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
@@ -437,7 +439,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[3][0].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 3))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 2, section: 0),
@@ -446,7 +448,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][2].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 2, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
@@ -455,7 +457,8 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[2][0].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet,
+                                               insertedAt: IndexPath(item: 0, section: 2))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -464,7 +467,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][1].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 3, section: 0),
@@ -473,7 +476,8 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][3].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet,
+                                               insertedAt: IndexPath(item: 3, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -482,7 +486,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][1].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 2, section: 0),
@@ -491,7 +495,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][2].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 2, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 3, section: 0),
@@ -500,7 +504,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][3].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 3, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -509,7 +513,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[3][1].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 3))
         XCTAssertTrue(self.sutDelegate?.state == .over)
         XCTAssertTrue(self.sutDelegate!.winnerIndexes.first!.item == 0)
         XCTAssertTrue(self.sutDelegate!.winnerIndexes.first!.section == 2)
@@ -529,7 +533,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][0].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 6, section: 0),
@@ -538,7 +542,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][6].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 6, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -547,7 +551,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][1].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 5, section: 1))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 5, section: 0),
@@ -556,7 +560,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][5].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 5, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -565,7 +569,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][1].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 4, section: 0),
@@ -574,7 +578,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][4].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 4, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -583,7 +587,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[3][1].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 3))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 3, section: 0),
@@ -592,7 +596,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][3].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 3, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .over)
         XCTAssertTrue(self.sutDelegate!.winnerIndexes.first!.item == 3)
         XCTAssertTrue(self.sutDelegate!.winnerIndexes.first!.section == 5)
@@ -612,7 +616,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][0].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
@@ -621,7 +625,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][0].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -630,7 +634,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][1].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 01, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -639,7 +643,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][1].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 2, section: 0),
@@ -648,7 +652,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][2].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 2, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 2, section: 0),
@@ -657,7 +661,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][2].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 2, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 3, section: 0),
@@ -666,7 +670,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][3].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 3, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .over)
         XCTAssertTrue(self.sutDelegate!.winnerIndexes.first!.item == 0)
         XCTAssertTrue(self.sutDelegate!.winnerIndexes.first!.section == 5)
@@ -686,7 +690,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][0].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -695,7 +699,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][1].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 6, section: 0),
@@ -704,7 +708,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][6].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 6, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -713,7 +717,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][1].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
@@ -722,7 +726,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][0].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -731,7 +735,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[3][1].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 3))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
@@ -740,7 +744,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[3][0].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 3))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -749,7 +753,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[2][1].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 2))
         XCTAssertTrue(self.sutDelegate?.state == .over)
         XCTAssertTrue(self.sutDelegate!.winnerIndexes.first!.item == 1)
         XCTAssertTrue(self.sutDelegate!.winnerIndexes.first!.section == 2)
@@ -769,7 +773,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][0].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -778,7 +782,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[5][1].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
@@ -787,7 +791,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][0].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -796,7 +800,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[4][1].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
@@ -805,7 +809,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[3][0].color == .red)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 3))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         //yellow
         self.sut?.addItem(at: IndexPath(item: 1, section: 0),
@@ -814,7 +818,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[3][1].color == .yellow)
         //turn
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 1, section: 3))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         //red
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
@@ -823,7 +827,7 @@ class BoardModelTests: XCTestCase {
         XCTAssertTrue(self.sutDelegate?.dataSet[2][0].color == .red)
         //finishing
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 2))
         XCTAssertTrue(self.sutDelegate!.state == .over)
         XCTAssertTrue(self.sutDelegate!.winnerIndexes.first!.item == 0)
         XCTAssertTrue(self.sutDelegate!.winnerIndexes.first!.section == 2)
@@ -841,35 +845,35 @@ class BoardModelTests: XCTestCase {
                           dataSet: self.sutDelegate!.dataSet)
         XCTAssertTrue(self.sutDelegate?.dataSet[5][0].color == .red)
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 5))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
                           turn: self.sutDelegate!.state,
                           dataSet: self.sutDelegate!.dataSet)
         XCTAssertTrue(self.sutDelegate?.dataSet[4][0].color == .yellow)
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 4))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
                           turn: self.sutDelegate!.state,
                           dataSet: self.sutDelegate!.dataSet)
         XCTAssertTrue(self.sutDelegate?.dataSet[3][0].color == .red)
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 3))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
                           turn: self.sutDelegate!.state,
                           dataSet: self.sutDelegate!.dataSet)
         XCTAssertTrue(self.sutDelegate?.dataSet[2][0].color == .yellow)
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 2))
         XCTAssertTrue(self.sutDelegate?.state == .redTurn)
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
                           turn: self.sutDelegate!.state,
                           dataSet: self.sutDelegate!.dataSet)
         XCTAssertTrue(self.sutDelegate?.dataSet[1][0].color == .red)
         self.sut?.analyzeGameResultAndTakeTurn(from: sutDelegate!.state,
-                                               with: sutDelegate!.dataSet)
+                                               with: sutDelegate!.dataSet, insertedAt: IndexPath(item: 0, section: 1))
         XCTAssertTrue(self.sutDelegate?.state == .yellowTurn)
         self.sut?.addItem(at: IndexPath(item: 0, section: 0),
                           turn: self.sutDelegate!.state,

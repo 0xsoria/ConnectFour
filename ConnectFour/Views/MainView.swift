@@ -232,7 +232,7 @@ final class MainView: NSView {
         case .yellow:
             return TitlesAndNames.winnerYellow.rawValue
         default:
-            return TitlesAndNames.wait.rawValue
+            return TitlesAndNames.tie.rawValue
         }
     }
     
@@ -252,6 +252,7 @@ extension MainView {
         case wait = "Wait for your turn"
         case winnerRed = "Red is the winner"
         case winnerYellow = "Yellow is the winner"
+        case tie = "It's a tie"
         case connectFour = "Connect four coins of the same color horizontally, vertically or diagonally."
     }
 }

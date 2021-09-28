@@ -8,7 +8,7 @@
 enum MakeBoardGame {
     static func make() -> BoardGameViewController {
         let connectFour = ConnectFourModel()
-        let model = BoardGameModel(model: connectFour)
+        let model = OptimizedBoardModel(model: connectFour)
         return BoardGameViewController(model: model)
     }
 }

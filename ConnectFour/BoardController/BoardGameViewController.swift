@@ -74,7 +74,8 @@ extension BoardGameViewController: BoardDataSourceDelegate {
     func didUpdate(at indexPath: IndexPath, from data: [[Coin]]) {
         self.mainView.updateBoard(at: indexPath)
         self.model.analyzeGameResultAndTakeTurn(from: self.mainView.state,
-                                                with: data)
+                                                with: data,
+                                                insertedAt: indexPath)
     }
 
     func didSelect(at indexPath: IndexPath, data: [[Coin]]) {
@@ -97,6 +98,7 @@ extension BoardGameViewController: BoardGameDelegate {
     
     func gameOver() {
         self.mainView.state = .over
+        self.mainView.updateStatusLabel(winner: .empty)
     }
     
     func shouldUpdateTurn(_ turn: GameState) {

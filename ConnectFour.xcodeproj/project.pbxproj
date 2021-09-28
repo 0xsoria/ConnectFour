@@ -21,6 +21,10 @@
 		158A627A2702079B00E9E5F3 /* BoardDataSourceForTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A62792702079B00E9E5F3 /* BoardDataSourceForTest.swift */; };
 		158A628227025ECA00E9E5F3 /* BoardGameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A628127025ECA00E9E5F3 /* BoardGameFactory.swift */; };
 		158A6284270263B700E9E5F3 /* ConnectFiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A6283270263B700E9E5F3 /* ConnectFiveTests.swift */; };
+		158A628627028DE000E9E5F3 /* TestOptimizedBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A628527028DE000E9E5F3 /* TestOptimizedBoard.swift */; };
+		158A62882703430300E9E5F3 /* TestIntegratedOptimizedBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A62872703430300E9E5F3 /* TestIntegratedOptimizedBoard.swift */; };
+		15B8757827035AF6008F6FDB /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8757727035AF6008F6FDB /* BoardController.swift */; };
+		15B8757A27035B43008F6FDB /* OptimizedBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8757927035B43008F6FDB /* OptimizedBoardModel.swift */; };
 		15BB922F2701D87800E1B331 /* ConnectFourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB922E2701D87800E1B331 /* ConnectFourModel.swift */; };
 		15FD591A2701E1AD009641C4 /* BoardModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB92302701D90900E1B331 /* BoardModelTests.swift */; };
 		15FD591B2701E1AD009641C4 /* ConnectFourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E715F26FFB3540029C75F /* ConnectFourTests.swift */; };
@@ -53,6 +57,10 @@
 		158A62792702079B00E9E5F3 /* BoardDataSourceForTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDataSourceForTest.swift; sourceTree = "<group>"; };
 		158A628127025ECA00E9E5F3 /* BoardGameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameFactory.swift; sourceTree = "<group>"; };
 		158A6283270263B700E9E5F3 /* ConnectFiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFiveTests.swift; sourceTree = "<group>"; };
+		158A628527028DE000E9E5F3 /* TestOptimizedBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOptimizedBoard.swift; sourceTree = "<group>"; };
+		158A62872703430300E9E5F3 /* TestIntegratedOptimizedBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIntegratedOptimizedBoard.swift; sourceTree = "<group>"; };
+		15B8757727035AF6008F6FDB /* BoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardController.swift; sourceTree = "<group>"; };
+		15B8757927035B43008F6FDB /* OptimizedBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizedBoardModel.swift; sourceTree = "<group>"; };
 		15BB922E2701D87800E1B331 /* ConnectFourModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourModel.swift; sourceTree = "<group>"; };
 		15BB92302701D90900E1B331 /* BoardModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModelTests.swift; sourceTree = "<group>"; };
 		15FD59112701E198009641C4 /* ConnectFourTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectFourTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				153E718026FFB4C40029C75F /* BoardGameModel.swift */,
+				15B8757927035B43008F6FDB /* OptimizedBoardModel.swift */,
 				15BB922E2701D87800E1B331 /* ConnectFourModel.swift */,
 				153E718226FFB4D30029C75F /* Coin.swift */,
 			);
@@ -171,6 +180,9 @@
 				15BB92302701D90900E1B331 /* BoardModelTests.swift */,
 				158A62792702079B00E9E5F3 /* BoardDataSourceForTest.swift */,
 				158A6283270263B700E9E5F3 /* ConnectFiveTests.swift */,
+				158A628527028DE000E9E5F3 /* TestOptimizedBoard.swift */,
+				158A62872703430300E9E5F3 /* TestIntegratedOptimizedBoard.swift */,
+				15B8757727035AF6008F6FDB /* BoardController.swift */,
 			);
 			path = ConnectFourTest;
 			sourceTree = "<group>";
@@ -282,6 +294,7 @@
 				153E717D26FFB48B0029C75F /* MainView.swift in Sources */,
 				153E718326FFB4D30029C75F /* Coin.swift in Sources */,
 				153E717926FFB39A0029C75F /* main.swift in Sources */,
+				15B8757A27035B43008F6FDB /* OptimizedBoardModel.swift in Sources */,
 				153E718526FFB51E0029C75F /* BoardDataSource.swift in Sources */,
 				15BB922F2701D87800E1B331 /* ConnectFourModel.swift in Sources */,
 				153E71872700C5050029C75F /* NSCollectionView+Extensions.swift in Sources */,
@@ -293,6 +306,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				158A628627028DE000E9E5F3 /* TestOptimizedBoard.swift in Sources */,
+				158A62882703430300E9E5F3 /* TestIntegratedOptimizedBoard.swift in Sources */,
+				15B8757827035AF6008F6FDB /* BoardController.swift in Sources */,
 				158A6284270263B700E9E5F3 /* ConnectFiveTests.swift in Sources */,
 				15FD591A2701E1AD009641C4 /* BoardModelTests.swift in Sources */,
 				158A627A2702079B00E9E5F3 /* BoardDataSourceForTest.swift in Sources */,
