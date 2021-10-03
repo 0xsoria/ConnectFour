@@ -38,6 +38,7 @@ class BoardGameModel {
     var numberOfCollums: Int
     var magicSequence: Int
     weak var delegate: BoardGameDelegate?
+    private let queue = DispatchQueue.global(qos: .userInteractive)
     
     init(model: BoardModel) {
         self.intelligentSelection = model.intellgentSelection
@@ -87,15 +88,20 @@ class BoardGameModel {
      */
     func analyzeGameResultAndTakeTurn(from turn: BoardGameViewController.GameState,
                                       with data: [[Coin]], insertedAt: IndexPath) {
-        //analyze result and positions
-        let result = self.isThereAWinner(from: turn, with: data, insertedAt: insertedAt)
-        if result.0 {
-            self.delegate?.shouldFinishTheGame(winner: turn.colorFromState(),
-                                               indexes: result.1,
-                                               state: .over)
-            return
-        }
         
+        self.queue.async {
+            //analyze result and positions
+            let result = self.isThereAWinner(from: turn, with: data, insertedAt: insertedAt)
+            if result.0 {
+                DispatchQueue.main.async {
+                    self.delegate?.shouldFinishTheGame(winner: turn.colorFromState(),
+                                                       indexes: result.1,
+                                                       state: .over)
+                    return
+                }
+            }
+        }
+
         //check if there is a tie.
         if self.isATie(with: data) {
             self.delegate?.gameOver()
