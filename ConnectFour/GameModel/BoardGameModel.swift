@@ -38,7 +38,7 @@ class BoardGameModel {
     var numberOfCollums: Int
     var magicSequence: Int
     weak var delegate: BoardGameDelegate?
-    private let queue = DispatchQueue.global(qos: .userInteractive)
+    private let queue: DispatchQueue = DispatchQueue.global()
     
     init(model: BoardModel) {
         self.intelligentSelection = model.intellgentSelection
@@ -111,7 +111,7 @@ class BoardGameModel {
         //if playing agains AI and it is the AI turn, make the ramdom selection after X seconds.
         if newTurn == .yellowTurn && self.intelligentSelection {
             self.delegate?.didStartIntelligentSelection()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.queue.asyncAfter(deadline: .now() + 0.5) {
                 self.delegate?.didStartIntelligentSelection()
                 //make random selection
                 self.getFreeIndex(data: data, from: newTurn)
