@@ -10,10 +10,10 @@ import Foundation
 protocol BoardGameDelegate: AnyObject {
     func shouldMakeInitialSetup(numberOfLines: Int, numberOfCollums: Int)
     func shouldStartNewGame(newState: BoardGameViewController.GameState,
-                         numberOfLines: Int,
-                         numberOfCollums: Int)
+                            numberOfLines: Int,
+                            numberOfCollums: Int)
     func shouldAddItem(at indexPath: IndexPath,
-                    to color: Coin.CoinColor)
+                       to color: Coin.CoinColor)
     func didStartIntelligentSelection()
     func didFinishIntelligentSelection()
     func shouldUpdateTurn(_ turn: BoardGameViewController.GameState)
@@ -31,7 +31,7 @@ protocol BoardModel {
 }
 
 class BoardGameModel {
-
+    
     ///Set to true if wants to play agains the AI (yellow coin).
     var intelligentSelection: Bool
     var numberOfLines: Int
@@ -46,9 +46,9 @@ class BoardGameModel {
         self.numberOfCollums = model.numberOfCollums
         self.magicSequence = model.magicSequence
     }
-
+    
     /**
-    Ask the model where to add a coin based on the selected item of the index path, the function calculates the correct line (section) to place the coin and informs the delegate where to place it. If there is no free line, it returns nothing.
+     Ask the model where to add a coin based on the selected item of the index path, the function calculates the correct line (section) to place the coin and informs the delegate where to place it. If there is no free line, it returns nothing.
      - Parameter indexPath: IndexPath selected (line and column).
      - Parameter turn: Who's the current turn.
      - Parameter dataSet: Dataset to have the coin inserted.
@@ -70,7 +70,7 @@ class BoardGameModel {
                 return
             }
         }
-
+        
         //analize positions and data set and informs the delegate where to place the new item.
         if let newIndex = self.getCorrectLineFromColumn(indexPath: indexPath,
                                                         data: dataSet) {
@@ -89,19 +89,15 @@ class BoardGameModel {
     func analyzeGameResultAndTakeTurn(from turn: BoardGameViewController.GameState,
                                       with data: [[Coin]], insertedAt: IndexPath) {
         
-        self.queue.async {
-            //analyze result and positions
-            let result = self.isThereAWinner(from: turn, with: data, insertedAt: insertedAt)
-            if result.0 {
-                DispatchQueue.main.async {
-                    self.delegate?.shouldFinishTheGame(winner: turn.colorFromState(),
-                                                       indexes: result.1,
-                                                       state: .over)
-                    return
-                }
-            }
+        //analyze result and positions
+        let result = self.isThereAWinner(from: turn, with: data, insertedAt: insertedAt)
+        if result.0 {
+            self.delegate?.shouldFinishTheGame(winner: turn.colorFromState(),
+                                               indexes: result.1,
+                                               state: .over)
+            return
         }
-
+        
         //check if there is a tie.
         if self.isATie(with: data) {
             self.delegate?.gameOver()
@@ -135,7 +131,7 @@ class BoardGameModel {
     
     
     /**
-        This function evaluate if there is a winner on the currect game. It evaluates the board and check if there are X coins of the same color in a row. If there is, it will return the indexes of these items.
+     This function evaluate if there is a winner on the currect game. It evaluates the board and check if there are X coins of the same color in a row. If there is, it will return the indexes of these items.
      - Important: This function is very inefficient, it evaluates  every possibility of connecting four elements             whatever the input of the user.
      
      */
@@ -256,8 +252,8 @@ class BoardGameModel {
     private func getFreeIndex(data: [[Coin]], from turn: BoardGameViewController.GameState) {
         if let freeIndex = self.getRandomFreeIndex(data: data),
            let correctLine = self.getCorrectLineFromColumn(indexPath: freeIndex, data: data) {
-               self.delegate?.shouldAddItem(at: correctLine,
-                                      to: self.colorFrom(currentTurn: turn))
+            self.delegate?.shouldAddItem(at: correctLine,
+                                         to: self.colorFrom(currentTurn: turn))
             self.delegate?.didFinishIntelligentSelection()
         } else {
             self.delegate?.gameOver()
@@ -279,9 +275,9 @@ class BoardGameModel {
         }
         return nil
     }
-
+    
     /**
-        Get a free random index, if it returns nil, means there is no free index and the game is over.
+     Get a free random index, if it returns nil, means there is no free index and the game is over.
      */
     private func getRandomFreeIndex(data: [[Coin]]) -> IndexPath? {
         for line in 0..<self.numberOfLines {
@@ -307,16 +303,16 @@ class BoardGameModel {
      */
     func initialSetup() {
         self.delegate?.shouldMakeInitialSetup(numberOfLines: self.numberOfLines,
-                                       numberOfCollums: self.numberOfCollums)
+                                              numberOfCollums: self.numberOfCollums)
     }
-
+    
     /**
      Informs the delegate who starts a game and the size of the board.
      */
     func newGame() {
         self.delegate?.shouldStartNewGame(newState: .redTurn,
-                                       numberOfLines: self.numberOfLines,
-                                       numberOfCollums: self.numberOfCollums)
+                                          numberOfLines: self.numberOfLines,
+                                          numberOfCollums: self.numberOfCollums)
     }
     
     private func colorFrom(currentTurn: BoardGameViewController.GameState) -> Coin.CoinColor {
@@ -327,7 +323,7 @@ class BoardGameModel {
         }
         return .empty
     }
-
+    
     ///Based on the current turn, returns who's next turn. If game hasn't started, return `.notStarted` state.
     private func newTurn(currentTurn: BoardGameViewController.GameState) -> BoardGameViewController.GameState {
         if currentTurn == .redTurn {

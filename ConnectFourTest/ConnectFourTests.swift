@@ -27,7 +27,6 @@ class ConnectFourTests: XCTestCase {
         XCTAssertTrue(self.sut!.mainView.board.dataSource != nil)
         XCTAssertTrue(self.sut!.mainView.board.numberOfSections == 6)
         XCTAssertTrue(self.sut!.mainView.board.numberOfItems(inSection: 0) == 7)
-        XCTAssertTrue((self.sut!.mainView.board.backgroundView as? NSImageView)?.image?.name() == .grid)
         XCTAssertTrue(self.sut!.mainView.gameStateLabel.stringValue == MainView.TitlesAndNames.startNewGame.rawValue)
     }
     

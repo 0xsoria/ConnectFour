@@ -29,6 +29,7 @@ final class BoardGameViewController: NSViewController {
     let mainView = MainView(with: .notStarted)
     let model: BoardGameModel
     let dataSource = BoardDataSource()
+    private let dispatchQueue = DispatchQueue(label: "com.ConnectFour")
 
     init(model: BoardGameModel) {
         self.model = model
@@ -73,15 +74,19 @@ extension BoardGameViewController: BoardDataSourceDelegate {
 
     func didUpdate(at indexPath: IndexPath, from data: [[Coin]]) {
         self.mainView.updateBoard(at: indexPath)
-        self.model.analyzeGameResultAndTakeTurn(from: self.mainView.state,
-                                                with: data,
-                                                insertedAt: indexPath)
+        self.dispatchQueue.async {
+            self.model.analyzeGameResultAndTakeTurn(from: self.mainView.state,
+                                                    with: data,
+                                                    insertedAt: indexPath)
+        }
     }
 
     func didSelect(at indexPath: IndexPath, data: [[Coin]]) {
-        self.model.addItem(at: indexPath,
-                           turn: self.mainView.state,
-                           dataSet: data)
+        self.dispatchQueue.async {
+            self.model.addItem(at: indexPath,
+                               turn: self.mainView.state,
+                               dataSet: data)
+        }
     }
 }
 
@@ -89,28 +94,38 @@ extension BoardGameViewController: BoardGameDelegate {
     func shouldFinishTheGame(winner: Coin.CoinColor,
                              indexes: [IndexPath],
                              state: BoardGameViewController.GameState) {
-        if let first = indexes.first, let last = indexes.last {
-            self.mainView.drawLine(from: first, to: last, color: winner)
+        DispatchQueue.main.async {
+            if let first = indexes.first, let last = indexes.last {
+                self.mainView.drawLine(from: first, to: last, color: winner)
+            }
+            self.mainView.state = state
+            self.mainView.updateStatusLabel(winner: winner)
         }
-        self.mainView.state = state
-        self.mainView.updateStatusLabel(winner: winner)
     }
     
     func gameOver() {
-        self.mainView.state = .over
-        self.mainView.updateStatusLabel(winner: .empty)
+        DispatchQueue.main.async {
+            self.mainView.state = .over
+            self.mainView.updateStatusLabel(winner: .empty)
+        }
     }
     
     func shouldUpdateTurn(_ turn: GameState) {
-        self.mainView.state = turn
+        DispatchQueue.main.async {
+            self.mainView.state = turn
+        }
     }
     
     func didStartIntelligentSelection() {
-        self.mainView.updateStatusLabel()
+        DispatchQueue.main.async {
+            self.mainView.updateStatusLabel()
+        }
     }
     
     func didFinishIntelligentSelection() {
-        self.mainView.updateStatusLabel()
+        DispatchQueue.main.async {
+            self.mainView.updateStatusLabel()
+        }
     }
 
     func shouldMakeInitialSetup(numberOfLines: Int, numberOfCollums: Int) {
@@ -121,7 +136,9 @@ extension BoardGameViewController: BoardGameDelegate {
     }
     
     func shouldAddItem(at indexPath: IndexPath, to color: Coin.CoinColor) {
-        self.dataSource.updateData(at: indexPath, coinColor: color)
+        DispatchQueue.main.async {
+            self.dataSource.updateData(at: indexPath, coinColor: color)
+        }
     }
     
     func shouldStartNewGame(newState: GameState,
