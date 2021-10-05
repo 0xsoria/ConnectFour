@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15199FE02709EC4100FCDAE2 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15199FDF2709EC4100FCDAE2 /* CoinView.swift */; };
 		153E714E26FFB3520029C75F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E714D26FFB3520029C75F /* AppDelegate.swift */; };
 		153E715026FFB3520029C75F /* BoardGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E714F26FFB3520029C75F /* BoardGameViewController.swift */; };
 		153E715226FFB3530029C75F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 153E715126FFB3530029C75F /* Assets.xcassets */; };
 		153E717926FFB39A0029C75F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E717826FFB39A0029C75F /* main.swift */; };
-		153E717B26FFB3F50029C75F /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E717A26FFB3F50029C75F /* NSImage+Extensions.swift */; };
 		153E717D26FFB48B0029C75F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E717C26FFB48B0029C75F /* MainView.swift */; };
 		153E717F26FFB4A50029C75F /* CoinCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E717E26FFB4A50029C75F /* CoinCollectionViewItem.swift */; };
 		153E718126FFB4C40029C75F /* BoardGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E718026FFB4C40029C75F /* BoardGameModel.swift */; };
@@ -45,13 +45,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15199FDF2709EC4100FCDAE2 /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
 		153E714A26FFB3520029C75F /* ConnectFour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectFour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		153E714D26FFB3520029C75F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		153E714F26FFB3520029C75F /* BoardGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameViewController.swift; sourceTree = "<group>"; };
 		153E715126FFB3530029C75F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		153E715F26FFB3540029C75F /* ConnectFourTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourTests.swift; sourceTree = "<group>"; };
 		153E717826FFB39A0029C75F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		153E717A26FFB3F50029C75F /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
 		153E717C26FFB48B0029C75F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		153E717E26FFB4A50029C75F /* CoinCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCollectionViewItem.swift; sourceTree = "<group>"; };
 		153E718026FFB4C40029C75F /* BoardGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameModel.swift; sourceTree = "<group>"; };
@@ -129,7 +129,6 @@
 		158A627B270255C000E9E5F3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				153E717A26FFB3F50029C75F /* NSImage+Extensions.swift */,
 				153E71862700C5050029C75F /* NSCollectionView+Extensions.swift */,
 			);
 			path = Extensions;
@@ -170,6 +169,7 @@
 				153E717C26FFB48B0029C75F /* MainView.swift */,
 				15FE2EF327073DCE00373C76 /* GridView.swift */,
 				153E717E26FFB4A50029C75F /* CoinCollectionViewItem.swift */,
+				15199FDF2709EC4100FCDAE2 /* CoinView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,7 +303,6 @@
 				153E714E26FFB3520029C75F /* AppDelegate.swift in Sources */,
 				153E717F26FFB4A50029C75F /* CoinCollectionViewItem.swift in Sources */,
 				153E718126FFB4C40029C75F /* BoardGameModel.swift in Sources */,
-				153E717B26FFB3F50029C75F /* NSImage+Extensions.swift in Sources */,
 				153E717D26FFB48B0029C75F /* MainView.swift in Sources */,
 				153E718326FFB4D30029C75F /* Coin.swift in Sources */,
 				153E717926FFB39A0029C75F /* main.swift in Sources */,
@@ -311,6 +310,7 @@
 				153E718526FFB51E0029C75F /* BoardDataSource.swift in Sources */,
 				15BB922F2701D87800E1B331 /* ConnectFourModel.swift in Sources */,
 				153E71872700C5050029C75F /* NSCollectionView+Extensions.swift in Sources */,
+				15199FE02709EC4100FCDAE2 /* CoinView.swift in Sources */,
 				15FE2EF427073DCE00373C76 /* GridView.swift in Sources */,
 				158A628227025ECA00E9E5F3 /* BoardGameFactory.swift in Sources */,
 			);
