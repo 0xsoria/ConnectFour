@@ -18,9 +18,9 @@ final class MainView: NSView {
             self.updateFrom(state: state)
         }
     }
-
+    
     weak var delegate: MainViewDelegate?
-
+    
     lazy var newGameButton: NSButton = {
         let button = NSButton()
         button.title = MainView.TitlesAndNames.newGame.rawValue
@@ -31,7 +31,7 @@ final class MainView: NSView {
         button.layer?.cornerRadius = 5
         return button
     }()
-
+    
     lazy var gameStateLabel: NSTextField = {
         let textField = NSTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -73,15 +73,17 @@ final class MainView: NSView {
         textField.font = NSFont.systemFont(ofSize: 12)
         return textField
     }()
-
+    
     lazy var board: NSCollectionView = {
         let collectionView = NSCollectionView()
+        let flowLayout = NSCollectionViewFlowLayout()
+        collectionView.collectionViewLayout = flowLayout
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.allowsMultipleSelection = true
         collectionView.isSelectable = false
         return collectionView
     }()
-
+    
     init(with state: BoardGameViewController.GameState) {
         self.state = state
         super.init(frame: NSRect(x: 0, y: 0, width: 700, height: 700))
@@ -112,7 +114,6 @@ final class MainView: NSView {
         self.setTitle(from: self.state)
         self.setupAttributes()
         self.setupLayout()
-        self.configureCollectionViewLayoutAndBackground()
         self.registerCollectionViewCell()
     }
     
@@ -130,22 +131,34 @@ final class MainView: NSView {
         self.board.reloadData()
     }
     
+    func updateBoard(numberOfLines: Int, numberOfColumns: Int) {
+        self.statusLabel.stringValue = TitlesAndNames.wait.rawValue
+        self.statusLabel.isHidden = true
+        self.board.layer?.sublayers?.removeAll(where: { lay in
+            lay is CAShapeLayer
+        })
+        self.board.isSelectable = true
+        self.configureCollectionViewLayout(numberOfLines: numberOfLines,
+                                           numberOfColumns: numberOfColumns)
+        self.board.reloadData()
+    }
+    
     private func registerCollectionViewCell() {
         self.board.register(CoinCollectionViewItem.self,
-                                      forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: MainView.TitlesAndNames.itemID.rawValue))
+                            forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: MainView.TitlesAndNames.itemID.rawValue))
     }
     
     private func setupLayout() {
         //collection view
         self.addSubview(self.board)
         self.board.topAnchor.constraint(equalTo: self.topAnchor,
-                                                 constant: 100).isActive = true
+                                        constant: 100).isActive = true
         self.board.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-                                                     constant: 50).isActive = true
+                                            constant: 50).isActive = true
         self.board.bottomAnchor.constraint(equalTo: self.bottomAnchor,
-                                                    constant: -100).isActive = true
+                                           constant: -100).isActive = true
         self.board.trailingAnchor.constraint(equalTo: self.trailingAnchor,
-                                                      constant: -50).isActive = true
+                                             constant: -50).isActive = true
         
         //new game button
         self.addSubview(self.newGameButton)
@@ -185,30 +198,23 @@ final class MainView: NSView {
         self.wantsLayer = true
         self.layer?.backgroundColor = NSColor.white.cgColor
     }
-
-    private func configureCollectionViewLayoutAndBackground() {
-        //layout
-        let spacing: CGFloat = 7.5
+    
+    func configureCollectionViewLayout(numberOfLines: Int, numberOfColumns: Int) {
         let collectionWidth = 600
         let collectionHeight = 500
-        let collectionHeightItems = 6
-        let collectionWidthItems = 7
+        let collectionHeightItems = numberOfLines
+        let collectionWidthItems = numberOfColumns
+        let itemWidth = (collectionWidth / collectionWidthItems)
+        let itemHeight = (collectionHeight / collectionHeightItems)
         let flowLayout = NSCollectionViewFlowLayout()
-        let itemWidth = (collectionWidth / collectionWidthItems) - 7
-        let itemHeight = (collectionHeight / collectionHeightItems) - 7
-        flowLayout.itemSize = NSSize(width: itemWidth , height: itemHeight)
-        flowLayout.sectionInset = NSEdgeInsets(top: 6.5, left: spacing,
-                                               bottom: 0, right: spacing)
+        flowLayout.itemSize = NSSize(width: itemWidth, height: itemHeight)
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 0
+        
         self.board.collectionViewLayout = flowLayout
         
-        //background image
-        guard let image = NSImage(named: .grid) else { return }
-        let imageView = NSImageView(image: image)
-        imageView.imageScaling = .scaleAxesIndependently
-
-        self.board.backgroundView = imageView
+        let gridView = GridView(lines: numberOfLines, columns: numberOfColumns)
+        self.board.backgroundView = gridView
         self.board.backgroundColors = [.white]
     }
     

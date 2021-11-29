@@ -34,3 +34,18 @@ struct ConnectFiveModelTwoPlayers: BoardModel {
         false
     }
 }
+
+struct ConnectFiveModelTwoPlayersSevenEight: BoardModel {
+    var numberOfLines: Int {
+        10
+    }
+    var numberOfCollums: Int {
+        11
+    }
+    var magicSequence: Int {
+        8
+    }
+    var intellgentSelection: Bool {
+        false
+    }
+}

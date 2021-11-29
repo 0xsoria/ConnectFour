@@ -44,3 +44,11 @@ enum MakeBoardGameTwoPlayersConnectFive {
         return BoardGameViewController(model: model)
     }
 }
+
+enum MakeBoardGameTwoPlayersConnectfiveSevenEight {
+    static func make() -> BoardGameViewController {
+        let connectFour = ConnectFiveModelTwoPlayersSevenEight()
+        let model = OptimizedBoardModel(model: connectFour)
+        return BoardGameViewController(model: model)
+    }
+}

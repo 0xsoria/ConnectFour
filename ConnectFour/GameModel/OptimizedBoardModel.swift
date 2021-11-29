@@ -95,7 +95,7 @@ class OptimizedBoardModel: BoardGameModel {
                 }
             }
         }
-        
+        ///range starts at 1 in order to avoid the repetition from last iteration
         for item in 1..<max(self.numberOfCollums, self.numberOfLines) {
             if insertedAt.section - item <= self.numberOfLines - 1 && insertedAt.section - item >= 0 {
                 if item + insertedAt.item <= self.numberOfCollums - 1 {

@@ -116,7 +116,8 @@ extension BoardGameViewController: BoardGameDelegate {
     func shouldMakeInitialSetup(numberOfLines: Int, numberOfCollums: Int) {
         self.dataSource.startNewData(numberOfLines: numberOfLines,
                                      numberOfCollums: numberOfCollums)
-        self.mainView.updateBoard()
+        self.mainView.updateBoard(numberOfLines: numberOfLines,
+                                  numberOfColumns: numberOfCollums)
     }
     
     func shouldAddItem(at indexPath: IndexPath, to color: Coin.CoinColor) {
